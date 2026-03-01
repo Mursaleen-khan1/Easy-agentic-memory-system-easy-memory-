@@ -9,8 +9,6 @@ import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.responses import StreamingResponse, JSONResponse
 from sentence_transformers import SentenceTransformer
-from rwkv.model import RWKV
-from rwkv.utils import PIPELINE, PIPELINE_ARGS
 from manager import log_message, save_memory
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -24,9 +22,7 @@ HOST = config["server"].get("host", "0.0.0.0")
 PORT = config["server"].get("port", 8000)
 LM_STUDIO_URL = config["server"]["lm_studio_url"]
 EMBEDDING_MODEL = config["models"]["embedding_model_path"]
-THINKER_PATH = config["models"]["thinker_model_path"]
 TOP_K = config["retrieval"].get("top_k", 5)
-THINKER_TOKENS = config["retrieval"].get("thinker_tokens", 400)
 
 _orig_torch_load = torch.load
 def _meddled_torch_load(*args, **kwargs):
@@ -35,29 +31,23 @@ def _meddled_torch_load(*args, **kwargs):
     return _orig_torch_load(*args, **kwargs)
 torch.load = _meddled_torch_load
 
-os.environ["RWKV_JIT_ON"] = '1'
-os.environ["RWKV_CUDA_ON"] = '0'
+torch.load = _meddled_torch_load
 
 app = FastAPI(title="Standalone Agentic RAG Proxy")
 
 router = None
-thinker_pipeline = None
 index_embeddings = None
 index_keys = None
 master_index = None
 
 @app.on_event("startup")
 async def startup_event():
-    global router, thinker_pipeline, index_embeddings, index_keys, master_index
+    global router, index_embeddings, index_keys, master_index
     device = "cuda" if torch.cuda.is_available() else "cpu"
     
     print("\n[!] Starting Standalone Agentic Proxy Server...")
     print(f"[*] Loading MPNet embedding model from {EMBEDDING_MODEL}...")
     router = SentenceTransformer(EMBEDDING_MODEL).to(device)
-    
-    print(f"[*] Loading Thinker from {THINKER_PATH}...")
-    thinker = RWKV(model=THINKER_PATH, strategy='cuda fp16')
-    thinker_pipeline = PIPELINE(thinker, "rwkv_vocab_v20230424")
 
     print(f"[*] Loading knowledge index from {INDEX_PATH}...")
     if os.path.exists(INDEX_PATH):
@@ -89,12 +79,8 @@ def run_agentic_research(query: str):
     for idx in top_indices:
         context_text += f"\n---\n{master_index[index_keys[idx]]['text']}"
 
-    think_prompt = f"User: You are a technical Researcher. Read the following facts and summarize exactly what is relevant to this query: {query}\n\nFacts:\n{context_text}\n\nAssistant: Here is the factual report:\n"
-    args = PIPELINE_ARGS(temperature=0.1, top_p=0.8, top_k=0, token_stop=[0])
-    
-    research_report = thinker_pipeline.generate(think_prompt, token_count=THINKER_TOKENS, args=args).strip()
-    print(f"  [AGENT] Report Generated ({len(research_report.split())} words).")
-    return research_report
+    print(f"  [AGENT] Found {len(top_indices)} relevant chunks.")
+    return context_text.strip()
 
 async def proxy_stream(payload: dict):
     full_response = ""

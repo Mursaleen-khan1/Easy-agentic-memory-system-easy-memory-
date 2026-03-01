@@ -1,12 +1,11 @@
 # Models Guide: Architecture and Recommendations
 
-The Standalone Agentic Memory Tool relies on a three-layered architecture to function. This document explains the role of each model, what embedding dimensions are, and provides recommendations for optimizing your setup.
+The Standalone Agentic Memory Tool relies on a two-layered architecture to function. This document explains the role of each model, what embedding dimensions are, and provides recommendations for optimizing your setup.
 
-## The Three-Layered Architecture
+## The Two-Layered Architecture
 
 1. **The Speaker (LLM)**: This is the model running in your LM Studio instance (e.g., `Phi-4-mini`, `Qwen2.5-Coder`). It acts as the brain that talks to the user, formats the output, and decides *when* to trigger the `search_database` tool.
-2. **The Thinker (RWKV)**: This is a fast, linear RNN model (default: `RWKV-6 1.6B`) running inside the proxy server. When the Speaker asks for facts, the Librarian grabs the text, but the Thinker summarizes and synthesizes those raw facts into a clean report before handing it back to the Speaker.
-3. **The Librarian (Embedding Model)**: This is a `SentenceTransformer` model running inside the proxy. It converts text chunks into mathematical arrays called "vectors" or "embeddings." It handles mapping user queries to the most relevant facts in your `librarian_index.json`.
+2. **The Librarian (Embedding Model)**: This is a `SentenceTransformer` model running natively inside the proxy framework. It converts text chunks into mathematical arrays called "vectors" or "embeddings." It handles mapping user queries to the most relevant facts in your `librarian_index.json` and returning those factual chunks to the Speaker.
 
 ---
 
