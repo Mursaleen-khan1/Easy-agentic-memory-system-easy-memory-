@@ -10,6 +10,7 @@ While doing so, it provides two massive superpowers:
 2. **Infinite Auto-Memory (The `/save` Command)**: Unlike standard chatbots that forget you the moment you clear the chat window, this tool intercepts the `/save` command to physically encode your current conversation into its permanent vector database. The agent actually learns, and will recall that context in any future conversation forever. 
 
 In short: It turns a standard text generator into a highly capable, self-learning Research Agent.
+
 I recommend to combain with this : https://github.com/mhndayesh/Physical-Token-Dropping-PTD
 ---
 
